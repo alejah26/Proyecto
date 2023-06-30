@@ -1,0 +1,82 @@
+.home{
+  margin-top: 100px; /* Aplica un margen superior de 50px al elemento main */
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+
+}
+h2{
+  position: flex;
+  padding: 20px;
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 38px;
+  text-align: center;
+}
+form{
+  display:flex;
+  position: absolute;
+  width: 917px;
+  height: 600px;
+  left: 0px;
+
+  background-color: #FBFBFB;
+  border-radius: 8px;
+}
+
+form label {
+
+  position: absolute;
+  width: 218px;
+  height: 30px;
+  left: 59px;
+  top: 150px;
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 38px;
+  text-align: center;
+}
+
+form input[type="text"] {
+  position: absolute;
+  width: 764px;
+  height: 61px;
+  left: 68px;
+  top: 220px;
+  border-radius: 5px;
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: left;
+
+  color: rgba(0, 0, 0, 0.46);
+}
+
+form button[type="submit"] {
+  border: none;
+  padding: 10px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  width: 265px;
+  height: 47px;
+  left: 68px;
+  top: 320px;
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  text-align: center;
+  color: #FBFBFB;
+  background-color: #3498db
+
+}
+
+form button[type="submit"]:hover {
+  background-color: #3D73DD;
+}

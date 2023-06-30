@@ -1,0 +1,5 @@
+.container{
+  margin-top: 100px; /* Aplica un margen superior de 50px al elemento main */
+  padding: 20px;
+  font-family: 'Roboto Condensed', sans-serif;
+}

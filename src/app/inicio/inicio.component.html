@@ -1,0 +1,23 @@
+<section class="home">
+  <h2>¡Bienvenido!</h2>
+  <form #myForm="ngForm">
+    <label for="enlace">Verifica tu enlace</label>
+    <input type="text" name="url" required placeholder="Introduzca el enlace...ej: www.google.com">
+    <button type="submit" >Verificar</button>
+  </form>
+</section>
+<!--<input type="text" [(ngModel)]="url" name="url" required placeholder="Introduzca el enlace...www.google.com">
+  <button type="submit" (click)="verificarCertificado()">Verificar</button>
+  <div class="security-info" *ngIf="resultado">
+  <h2>{{ resultado.titulo }}</h2>
+  <p>{{ resultado.mensaje }}</p>
+  <p *ngIf="resultado.certificados">
+    Certificados:
+  <ul>
+    <li *ngFor="let certificado of resultado.certificados">{{ certificado }}</li>
+  </ul>
+
+</div>
+
+-->
+

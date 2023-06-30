@@ -1,0 +1,20 @@
+/* Estilos para el componente principal */
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Estilos para el componente del encabezado */
+app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+/* Estilos para el componente del pie de página */
+app-footer {
+  margin-top: auto;
+}
