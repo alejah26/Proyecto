@@ -7,9 +7,9 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent {
- /* url: string = '';
+  url: string = '';
   resultado: any = null;
-
+/*
   constructor(private http: HttpClient) {}
 
   verificarCertificado() {

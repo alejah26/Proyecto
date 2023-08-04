@@ -1,16 +1,36 @@
-<header>
+<section class="section m-0 p-0 pt-2 has-background-link">
   <div class="container">
-    <div class="logo">
-        <img [src]="imageUrl" alt="logo de página">
+    <div class="columns">
+      <div class="column is-9 is-offset-1">
+        <nav
+          aria-label="main navigation"
+          class="navbar has-background-link"
+          role="navigation"
+        >
+          <div class="navbar-brand">
+            <a class="navbar-item has-text-white has-text-weight-bold" href="/">
+              <img [src]="imageUrl" alt="LOGO" />
+              <span class="is-size-4">&nbsp; MySafeLink</span> </a
+            ><a
+              aria-label="menu"
+              class="navbar-burger has-text-white"
+              data-target="navbar"
+              role="button"
+            >
+              <span aria-hidden=""></span>
+              <span aria-hidden=""></span>
+              <span aria-hidden=""></span>
+            </a>
+          </div>
+          <div class="navbar-menu" id="navbar">
+            <div class="navbar-end">
+              <div class="navbar-item">
+                <a class="has-text-white" href="/">Ayuda</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
     </div>
-    <span class="site-name">MySafeLink</span>
-    <nav>
-      <ul>
-        <li><a routerLink="/" routerLinkActive="active"><span class="icon-home"></span>Inicio</a></li>
-        <li><a routerLink="/tips" routerLinkActive="active"><span class="icon-lightbulb"></span>Tips</a></li>
-        <li><a routerLink="/informacion" routerLinkActive="active"><span class="icon-info-circled"></span>Información</a></li>
-      </ul>
-    </nav>
-</div>
-
-</header>
+  </div>
+</section>

@@ -1,5 +1,5 @@
-.home{
-  margin-top: 100px; /* Aplica un margen superior de 50px al elemento main */
+/*.home{
+  margin-top: 100px;
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -80,3 +80,4 @@ form button[type="submit"] {
 form button[type="submit"]:hover {
   background-color: #3D73DD;
 }
+*/
