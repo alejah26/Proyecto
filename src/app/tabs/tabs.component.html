@@ -1,0 +1,33 @@
+<section class="section pb-0">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-three-fifths is-offset-one-fifth">
+        <div class="tabs is-centered is-boxed is-large is-fullwidth">
+          <ul>
+            <li
+              routerLinkActive="is-active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              <a routerLink="/inicio">
+                <span class="icon-home"></span>
+                <span>Inicio</span>
+              </a>
+            </li>
+            <li routerLinkActive="is-active">
+              <a routerLink="/tips">
+                <span class="icon-lightbulb"></span>
+                <span>Tips para PYMES</span>
+              </a>
+            </li>
+            <li routerLinkActive="is-active">
+              <a routerLink="/informacion">
+                <span class="icon-info-circled"></span>
+                <span>Información</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
