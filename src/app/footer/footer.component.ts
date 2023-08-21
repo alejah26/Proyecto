@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
-  page: string = 'www.mysafelink.com';
+  site: string = 'Universidad de Cundinamarca';
   year:number = new Date().getFullYear();
 }
