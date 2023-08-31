@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-
+import {HttpClient, HttpParams} from '@angular/common/http';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -9,40 +8,54 @@ import {HttpClient} from '@angular/common/http';
 export class InicioComponent {
   url: string = '';
   resultado: any = null;
-/*
-  constructor(private http: HttpClient) {}
+  error: boolean = false;
+  msjeError:string = '';
 
-  verificarCertificado() {
-    // Realizar una petición HTTPS con HttpClient
-    this.http.get(this.url, {observe: 'response'})
-      .subscribe(response => {
-        // Comprobar si hay algún error de certificado
-        if (response.headers.has('Strict-Transport-Security') ||
-            response.headers.has('Public-Key-Pins') ||
-            response.headers.has('Expect-CT') ||
-            response.headers.has('X-Content-Type-Options') ||
-            response.headers.has('X-Frame-Options') ||
-            response.headers.has('X-XSS-Protection')) {
-          // El sitio tiene certificados de seguridad
-          const certificados = response.headers.getAll('X-509-Self-Signed-Certificate');
-          this.resultado = {
-            titulo: 'Es seguro',
-            mensaje: 'El sitio tiene certificados de seguridad',
-            certificados: certificados
-          };
-        } else {
-          // El sitio no tiene certificados de seguridad
-          this.resultado = {
-            titulo: 'Es inseguro',
-            mensaje: 'El sitio no tiene certificados de seguridad'
-          };
-        }
-      }, error => {
-        // Hubo un error en la petición
-        this.resultado = {
-          titulo: 'Error',
-          mensaje: 'Hubo un error al verificar el certificado'
-        };
+  URL_API = 'http://localhost:8000/api/';
+
+  constructor(private _http: HttpClient) {}
+
+  verifyUrl(){
+    this.error = false;
+    
+    if(this.url=== ''){
+      this.error = true;
+      this.msjeError = 'Ingrese la url para verificarla en nuestro sistema. Ej: http://dominio.com';
+      return;
+    }
+    
+    let regexUrl = new RegExp(
+        // valida protocolo
+        '^(https?:\\/\\/)?'+
+        // valida nombre de dominio
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+
+        // valida OR direccion ip (v4)
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+
+        // valida puerto y path
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+
+        // valida queries
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+
+        // valida fragment locator
+    '(\\#[-a-z\\d_]*)?$','i'
+    );
+    
+    const urlValidate: boolean = regexUrl.test(this.url);
+
+    if(!urlValidate){
+      this.error = true;
+      this.msjeError = 'El texto ingresado NO corresponde a un Localizador de Recursos Uniforme(URL) válido.';
+      return
+    }
+    
+    const params = new HttpParams().append('url', this.url);
+    
+   return this._http.get<any>(this.URL_API+ 'secure/get', {params})
+      .subscribe(res => {
+         console.log(res.message);
       });
-  }*/
+    
+      
+    
+  }
+
 }
