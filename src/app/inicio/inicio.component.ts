@@ -10,6 +10,7 @@ export class InicioComponent {
   resultado: any = null;
   error: boolean = false;
   msjeError:string = '';
+  diagnostico: any;
 
   URL_API = 'http://localhost:8000/api/';
 
@@ -43,6 +44,7 @@ export class InicioComponent {
 
     if(!urlValidate){
       this.error = true;
+      this.resultado = null;
       this.msjeError = 'El texto ingresado NO corresponde a un Localizador de Recursos Uniforme(URL) válido.';
       return
     }
@@ -51,11 +53,22 @@ export class InicioComponent {
     
    return this._http.get<any>(this.URL_API+ 'secure/get', {params})
       .subscribe(res => {
-         console.log(res.message);
+        this.error = res.error;
+        this.resultado = res.data;
+         if(this.error){
+            this.msjeError = res.message;
+         }else{
+          this.diagnostico = this.resultado.dias_expira > 0 && this.resultado.tiene_ssl;
+         }
       });
     
       
     
+  }
+
+  nuevaConsulta(){
+    this.url = '';
+    this.resultado = null;
   }
 
 }
