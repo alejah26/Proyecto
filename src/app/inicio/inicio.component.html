@@ -34,6 +34,7 @@
       <div class="field is-grouped">
         <p class="control is-expanded">
           <input
+            id="txtUrl"
             class="input is-rounded"
             [ngClass]="{ 'is-danger': error }"
             type="text"
@@ -63,14 +64,75 @@
 
 <!-- ---------- RESULTADO ---------- -->
 
-<div class="security-info" *ngIf="resultado">
-  <h2>{{ resultado.titulo }}</h2>
-  <p>{{ resultado.mensaje }}</p>
-  <p *ngIf="resultado.certificados">Certificados:</p>
+<section class="security-info block" *ngIf="resultado">
+  <div class="columns">
+    <section
+      class="column is-7 is-offset-2 notification is-light"
+      [ngClass]="{
+        'is-success': diagnostico,
+        'is-danger': !diagnostico
+      }"
+    >
+      <h2 class="subtitle is-5 is-uppercase has-text-centered pb-2">
+        <i
+          class="fa fa-2x"
+          [ngClass]="{
+            'fa-check-circle': diagnostico,
+            'fa-unlock': !diagnostico
+          }"
+          aria-hidden="true"
+        ></i>
+        {{
+          diagnostico ? "El sitio web es seguro" : "El sitio web NO es seguro"
+        }}
+      </h2>
+    </section>
+  </div>
+  <div class="columns">
+    <div
+      class="column is-7 is-offset-2 notification has-background-white-bis py-5"
+    >
+      <h4
+        class="subtitle is-6 has-text-weight-semibold has-text-centered is-uppercase"
+      >
+        Información del certificado
+      </h4>
 
-  <ul>
-    <li *ngFor="let certificado of resultado.certificados">
-      {{ certificado }}
-    </li>
-  </ul>
-</div>
+      <ul class="is-family-code" id="lst-resulado">
+        <li><strong>URL del sitio:</strong> {{ resultado.url }}</li>
+        <li>
+          <strong>Nombre en certificado:</strong>
+          {{ resultado.nombre_en_certificado }}
+        </li>
+        <li><strong>Tiene SSL:</strong> {{ resultado.tiene_ssl }}</li>
+        <li>
+          <strong>Certificado válido:</strong>
+          {{ resultado.certificado_valido }}
+        </li>
+        <li>
+          <strong>Firma algoritmo:</strong> {{ resultado.firma_algoritmo }}
+        </li>
+        <li><strong>País (C):</strong> {{ resultado.pais_c }}</li>
+        <li>
+          <strong>Organización certifica (O):</strong>
+          {{ resultado.organizacion_o }}
+        </li>
+        <li>
+          <strong>Nombre común (CN):</strong> {{ resultado.nombre_comun_cn }}
+        </li>
+        <li>
+          <strong>Fecha válida desde:</strong> {{ resultado.valido_desde }}
+        </li>
+        <li>
+          <strong>Fecha válida hasta:</strong> {{ resultado.valido_hasta }}
+        </li>
+        <li><strong>Días expiración:</strong> {{ resultado.dias_expira }}</li>
+      </ul>
+      <section class="section has-text-centered pb-3">
+        <button class="button is-link is-outlined" (click)="nuevaConsulta()">
+          Nueva consulta
+        </button>
+      </section>
+    </div>
+  </div>
+</section>
