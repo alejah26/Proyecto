@@ -110,6 +110,10 @@
           {{ resultado.certificado_valido }}
         </li>
         <li>
+          <strong>Tipo Certificado:</strong>
+          {{ resultado.tipo_certificado ?? "Sin identificar" }}
+        </li>
+        <li>
           <strong>Firma algoritmo:</strong> {{ resultado.firma_algoritmo }}
         </li>
         <li><strong>País (C):</strong> {{ resultado.pais_c }}</li>
@@ -127,6 +131,28 @@
           <strong>Fecha válida hasta:</strong> {{ resultado.valido_hasta }}
         </li>
         <li><strong>Días expiración:</strong> {{ resultado.dias_expira }}</li>
+
+        <li *ngIf="resultado.tiene_ssl">
+          <strong>Diagnóstico:&nbsp;</strong>
+          <i
+            class="fa"
+            [ngClass]="{
+              'fa-exclamation-circle': resultado.tipo_certificado !== 'EV'
+            }"
+            aria-hidden="true"
+          ></i>
+          <span
+            [ngClass]="
+              resultado.tipo_certificado === 'DV'
+                ? 'has-text-warning-dark'
+                : resultado.tipo_certificado === 'EV'
+                ? 'has-text-success-dark'
+                : 'has-text-info-dark'
+            "
+          >
+            {{ resultado.diagnostico_certificado }}</span
+          >
+        </li>
       </ul>
       <section class="section has-text-centered pb-3">
         <button class="button is-link is-outlined" (click)="nuevaConsulta()">
