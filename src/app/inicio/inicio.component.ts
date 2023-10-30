@@ -12,7 +12,7 @@ export class InicioComponent {
   msjeError:string = '';
   diagnostico: any;
 
-  URL_API = 'http://localhost:8000/api/';
+  URL_API = 'https://mipyme-cibersegura-fusa.com/api/';
 
   constructor(private _http: HttpClient) {}
 
