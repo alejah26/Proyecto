@@ -12,7 +12,11 @@ export class InicioComponent {
   msjeError:string = '';
   diagnostico: any;
 
-  URL_API = 'http://localhost:8000/api/';
+  URL_API_ARTISAN = 'http://localhost:8000/api/';
+
+  URL_API_APACHE = 'http://localhost/proyecto-u/backend/public/api/';
+
+  URL_API_PROD = 'https://api.mipyme-cibersegura-fusa.com/api/';
 
   constructor(private _http: HttpClient) {}
 
@@ -51,7 +55,7 @@ export class InicioComponent {
     
     const params = new HttpParams().append('url', this.url);
     
-   return this._http.get<any>(this.URL_API+ 'secure/get', {params})
+   return this._http.get<any>(this.URL_API_PROD+ 'secure/get', {params})
       .subscribe(res => {
         this.error = res.error;
         this.resultado = res.data;
